@@ -18,7 +18,7 @@ class GameLogsController < ApplicationController
     @game_log = GameLog.new(game_log_params)
 
     if @game_log.save
-      render json: @game_log, status: :created, location: @game_log
+      render json: @game_log.to_json(:include => { :image => { :only => [], :methods => [:id, :avatar_url] }}), status: :created, location: @game_log
     else
       render json: @game_log.errors, status: :unprocessable_entity
     end
