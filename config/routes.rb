@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :game_logs
   resources :game_logs, only: [:create, :index]
   root "images#index"
   resources :images, only: [:create, :index]

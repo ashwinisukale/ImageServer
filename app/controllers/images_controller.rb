@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   # GET /images
   def index
     #byebug
-    images = @gallery.to_json(:include => { :images => { :only => [], :methods => [:avatar_url] }})
+    images = @gallery.to_json(:include => { :images => { :only => [], :methods => [:id, :avatar_url] }})
     render json: images
   end
 
