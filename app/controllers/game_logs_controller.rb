@@ -4,7 +4,7 @@ class GameLogsController < ApplicationController
   # GET /game_logs
   def index
     @game_logs = GameLog.all
-    @game_logs = @game_logs.to_json(:include => { :image => { :only => [], :methods => [:id, :avatar_url] }})
+    @game_logs = @game_logs.to_json(:include => { :image => { :only => [], :methods => [:id, :avatar_url] }}, :methods => [:capture_time])
     render json: @game_logs
   end
 
